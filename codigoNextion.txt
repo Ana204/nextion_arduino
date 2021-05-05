@@ -1,0 +1,20 @@
+//importando a biblioteca Nextion
+#include "Nextion.h"
+
+NexDSButton bt0 = NexDSButton(0, 1 "bto");
+uint32_t estado_botao;
+
+void setup(){
+    nexInit();
+    pinMode(13, OUTPUT);
+}
+
+void loop(){
+    bt0.getValue(&estado_botao);
+    if(estado_botao > 0)
+    {
+        digitalWrite(13, HIGH);
+    } else {
+        digitalWrite(13, LOW);
+    }
+}
